@@ -36,32 +36,33 @@ return require('packer').startup(function()
 	'nvim-telescope/telescope.nvim',
 	requires = 'nvim-lua/plenary.nvim' 
     }
-    use {
-	'nvim-neorg/neorg',
-	config = function()
-	    require('neorg').setup {
-		load = {
-		    ['core.defaults'] = {},
-		    ['core.norg.dirman'] = {
-			config = {}
-		    },
-		    ['core.norg.concealer'] = {},
-		}
-	    }
-	end,
-	requires = 'nvim-lua/plenary.nvim',
-	disable = true
-    }
     use 'plasticboy/vim-markdown'
-    use {
-	'neoclide/coc.nvim',
-	branch = 'release',
-	disable = true
-    }
     use {
 	'windwp/nvim-autopairs',
 	config = function()
 	    require('nvim-autopairs').setup{}
+	end
+    }
+    use {
+	'lukas-reineke/indent-blankline.nvim',
+	config = function()
+	    require("indent_blankline").setup {
+                show_current_context = true,
+                show_current_context_start = true,
+            }
+	end
+    }
+    use 'sbdchd/neoformat'
+    use({ 
+	"iamcco/markdown-preview.nvim",
+	run = "cd app && yarn install",
+	setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+	ft = { "markdown" },
+    })
+    use {
+	'lewis6991/gitsigns.nvim',
+	config = function()
+	    require('gitsigns').setup()
 	end
     }
 end)
