@@ -1,5 +1,5 @@
 -- default config
-require("lua.core.defaults")
+require("core.defaults")
 -- nvim-cpm setup
 vim.cmd([[
     set completeopt=menu,menuone,noselect
@@ -130,7 +130,7 @@ require("lspconfig")["sumneko_lua"].setup({
 })
 
 -- Packer and plugins
-require("lua.plugins.plugins")
+require("plugins.plugins")
 require("lualine").setup({
 	options = { theme = "ayu_mirage" },
 })
@@ -155,7 +155,7 @@ require("telescope").setup({
 })
 
 -- Keymappings
-require("lua.core.keymappings")
+require("core.keymappings")
 
 -- Disable default markdown folding
 vim.g.vim_markdown_folding_disabled = 1
@@ -164,4 +164,4 @@ vim.g.vim_markdown_folding_disabled = 1
 vim.g.neoformat_try_node_exe = 1
 
 -- Autocommands
-require("lua.autocommands.format-on-write")
+require("autocommands.format-on-write")
