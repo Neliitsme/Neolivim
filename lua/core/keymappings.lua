@@ -49,3 +49,7 @@ vim.cmd([[
     nnoremap <silent>bg :BufferLinePick<CR>
     nnoremap <silent>bc :BufferLinePickClose<CR>
 ]])
+
+-- NvimTree
+vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { noremap = true })
