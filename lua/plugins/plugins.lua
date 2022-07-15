@@ -134,4 +134,18 @@ return require("packer").startup(function()
 			require("Comment").setup()
 		end,
 	})
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup()
+		end,
+	})
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	})
 end)
