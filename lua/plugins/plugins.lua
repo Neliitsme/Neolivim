@@ -128,4 +128,10 @@ return require("packer").startup(function()
 		end,
 	})
 	use("saadparwaiz1/cmp_luasnip")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 end)
