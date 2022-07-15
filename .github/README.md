@@ -2,7 +2,7 @@
 
 ![A picture showing the look of the config](/.github/media/terminal-screenshot.png)
 
-My custom config for [neovim](https://github.com/neovim/neovim).
+My custom config for [neovim](https://github.com/neovim/neovim), inspired by [NvChad](https://github.com/NvChad/NvChad).
 
 At this moment it's relatively barebones, but already has some useful plugins installed like [Telescope](https://github.com/nvim-telescope/telescope.nvim), [nvim-cmp](https://github.com/hrsh7th/nvim-cmp), [nvim-lsp-installer](https://github.com/williamboman/nvim-lsp-installer), [LuaSnip](https://github.com/L3MON4D3/LuaSnip) (with [friendly-snippets](https://github.com/rafamadriz/friendly-snippets)) and some others. (Check out [plugins.lua file](/lua/plugins/plugins.lua) to see more)
 

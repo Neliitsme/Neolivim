@@ -144,4 +144,27 @@ return require('packer').startup(function()
             require('todo-comments').setup()
         end,
     })
+    use({
+        'akinsho/bufferline.nvim',
+        tag = 'v2.*',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            vim.opt.termguicolors = true
+            require('bufferline').setup({
+                options = {
+                    diagnostics = 'nvim_lsp',
+                    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+                        local icon = level:match('error') and ' ' or ' '
+                        return ' ' .. icon .. count
+                    end,
+                },
+            })
+        end,
+    })
+    use({
+        'folke/which-key.nvim',
+        config = function()
+            require('which-key').setup({})
+        end,
+    })
 end)
