@@ -44,7 +44,6 @@ return require('packer').startup(function()
             })
         end,
     })
-    use('sbdchd/neoformat')
     use({
         'iamcco/markdown-preview.nvim',
         run = 'cd app && yarn install',
@@ -180,5 +179,27 @@ return require('packer').startup(function()
                 },
             })
         end,
+    })
+    use({
+        'Pocco81/AutoSave.nvim',
+        config = function()
+            require('autosave').setup({
+                enabled = true,
+            })
+        end,
+    })
+    use({
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require('null-ls').setup({
+                sources = {
+                    require('null-ls').builtins.formatting.deno_fmt,
+                    require('null-ls').builtins.formatting.prettier,
+                    require('null-ls').builtins.formatting.stylua,
+                    require('null-ls').builtins.formatting.autopep8,
+                },
+            })
+        end,
+        requires = { 'nvim-lua/plenary.nvim' },
     })
 end)
