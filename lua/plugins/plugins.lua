@@ -23,6 +23,13 @@ return require('packer').startup(function()
     use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                highlight = {
+                    enable = true,
+                },
+            })
+        end,
     })
     use({
         'nvim-telescope/telescope.nvim',
@@ -39,6 +46,7 @@ return require('packer').startup(function()
         'lukas-reineke/indent-blankline.nvim',
         config = function()
             require('indent_blankline').setup({
+                indentLine_enabled = 1,
                 show_current_context = true,
                 show_current_context_start = true,
             })

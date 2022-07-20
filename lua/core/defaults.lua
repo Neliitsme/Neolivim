@@ -6,10 +6,13 @@ vim.cmd([[
 
 -- Default variables
 vim.cmd([[
-    set shiftwidth=4
+    set shiftwidth=2
     set number relativenumber
     set nohlsearch
 ]])
+
+vim.opt.expandtab = true
+vim.opt.smartindent = true
 
 -- Color theme setup
 vim.cmd([[

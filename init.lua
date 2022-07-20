@@ -184,8 +184,5 @@ require('core.keymappings')
 -- Disable default markdown folding
 vim.g.vim_markdown_folding_disabled = 1
 
--- Allow project-local prettier usage for neoformat
-vim.g.neoformat_try_node_exe = 1
-
 -- Autocommands
 -- require('autocommands.format-on-write')
