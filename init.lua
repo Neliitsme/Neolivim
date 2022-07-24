@@ -176,6 +176,15 @@ require('telescope').setup({
             vertical = { mirror = false },
         },
     },
+    pickers = {
+        buffers = {
+            mappings = {
+                i = {
+                    ['<C-d>'] = 'delete_buffer',
+                },
+            },
+        },
+    },
 })
 
 -- Keymappings

@@ -1,10 +1,8 @@
 -- Telesctope
-vim.cmd([[
-    nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-    nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-    nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-    nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-]])
+vim.keymap.set('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", { noremap = true })
+vim.keymap.set('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", { noremap = true })
 
 -- LuaSnip
 vim.cmd([[
@@ -31,24 +29,8 @@ vim.api.nvim_set_keymap('n', '<leader>xq', '<cmd>Trouble quickfix<cr>', { silent
 vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', { silent = true, noremap = true })
 
 -- bufferline
-vim.cmd([[
-    " These commands will navigate through buffers in order regardless of which mode you are using
-    " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
-    nnoremap <silent>]b :BufferLineCycleNext<CR>
-    nnoremap <silent>[b :BufferLineCyclePrev<CR>
-
-    " These commands will move the current buffer backwards or forwards in the bufferline
-    nnoremap <silent><mymap> :BufferLineMoveNext<CR>
-    nnoremap <silent><mymap> :BufferLineMovePrev<CR>
-
-    " These commands will sort buffers by directory, language, or a custom criteria
-    nnoremap <silent>be :BufferLineSortByExtension<CR>
-    nnoremap <silent>bd :BufferLineSortByDirectory<CR>
-    nnoremap <silent><mymap> :lua require'bufferline'.sort_buffers_by(function (buf_a, buf_b) return buf_a.id < buf_b.id end)<CR>
-
-    nnoremap <silent>bg :BufferLinePick<CR>
-    nnoremap <silent>bc :BufferLinePickClose<CR>
-]])
+vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 
 -- NvimTree
 vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
