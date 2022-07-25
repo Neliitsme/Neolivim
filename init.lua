@@ -1,3 +1,5 @@
+-- make sure packer is enabled
+require('plugins.plugins')
 -- default config
 require('core.defaults')
 -- nvim-cpm setup
