@@ -8,12 +8,9 @@ vim.cmd([[
 local use = require('packer').use
 return require('packer').startup(function()
     use('wbthomason/packer.nvim')
-    use({
-        'williamboman/nvim-lsp-installer',
-        {
-            'neovim/nvim-lspconfig',
-        },
-    })
+    use('williamboman/mason.nvim')
+    use('williamboman/mason-lspconfig.nvim')
+    use('neovim/nvim-lspconfig')
     use('ayu-theme/ayu-vim')
     use('kyazdani42/nvim-web-devicons')
     use({

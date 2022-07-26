@@ -7,8 +7,9 @@ vim.cmd([[
     set completeopt=menu,menuone,noselect
 ]])
 
--- Setup nvim-lsp-installer
-require('nvim-lsp-installer').setup({})
+-- Setup mason.nvim
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 -- Setup nvim-cmp.
 local lspkind = require('lspkind')
@@ -123,27 +124,20 @@ local lsp_flags = {
     -- This is the default in Nvim 0.7+
     debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-require('lspconfig')['tsserver'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-require('lspconfig')['eslint'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-require('lspconfig')['html'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-require('lspconfig')['cssls'].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-})
-require('lspconfig')['sumneko_lua'].setup({
+
+-- setup LSPs
+local lspconfig = require('lspconfig')
+local servers = { 'pyright', 'tsserver', 'eslint', 'html', 'cssls' }
+
+for _, server in ipairs(servers) do
+    lspconfig[server].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+    })
+end
+
+-- custom LSP configs
+lspconfig['sumneko_lua'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
     settings = {
