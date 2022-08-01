@@ -6,10 +6,20 @@ vim.cmd([[
 ]])
 
 local use = require('packer').use
-return require('packer').startup(function()
+local startup = require('packer').startup(function()
     use('wbthomason/packer.nvim')
-    use('williamboman/mason.nvim')
-    use('williamboman/mason-lspconfig.nvim')
+    use({
+        'williamboman/mason.nvim',
+        config = function()
+            require('mason').setup()
+        end,
+    })
+    use({
+        'williamboman/mason-lspconfig.nvim',
+        config = function()
+            require('mason-lspconfig').setup()
+        end,
+    })
     use('neovim/nvim-lspconfig')
     use('ayu-theme/ayu-vim')
     use('kyazdani42/nvim-web-devicons')
@@ -32,7 +42,7 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim',
     })
-    use('plasticboy/vim-markdown')
+    use('preservim/vim-markdown')
     use({
         'windwp/nvim-autopairs',
         config = function()
@@ -207,4 +217,21 @@ return require('packer').startup(function()
         end,
         requires = { 'nvim-lua/plenary.nvim' },
     })
+    use({
+        'nvim-neorg/neorg',
+        config = function()
+            require('neorg').setup({
+                load = {
+                    ['core.defaults'] = {},
+                    ['core.norg.concealer'] = {},
+                },
+            })
+        end,
+        requires = 'nvim-lua/plenary.nvim',
+    })
 end)
+
+-- load plugin configs
+require('plugins.configs')
+
+return startup
