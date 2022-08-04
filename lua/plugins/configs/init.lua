@@ -140,9 +140,6 @@ lspconfig['sumneko_lua'].setup({
     },
 })
 
-require('lualine').setup({
-    options = { theme = 'ayu_mirage' },
-})
 
 require('telescope').setup({
     defaults = {

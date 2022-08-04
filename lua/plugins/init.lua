@@ -21,7 +21,7 @@ local startup = require('packer').startup(function()
         end,
     })
     use('neovim/nvim-lspconfig')
-    use('ayu-theme/ayu-vim')
+    use('Shatur/neovim-ayu')
     use('kyazdani42/nvim-web-devicons')
     use({
         'nvim-lualine/lualine.nvim',
