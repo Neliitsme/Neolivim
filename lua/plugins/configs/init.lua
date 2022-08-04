@@ -117,11 +117,16 @@ local lsp_flags = {
 }
 
 -- setup LSPs
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 local lspconfig = require('lspconfig')
 local servers = { 'pyright', 'tsserver', 'eslint', 'html', 'cssls' }
 
 for _, server in ipairs(servers) do
     lspconfig[server].setup({
+        capabilities = capabilities,
         on_attach = on_attach,
         flags = lsp_flags,
     })
