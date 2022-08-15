@@ -229,6 +229,12 @@ local startup = require('packer').startup(function()
         end,
         requires = 'nvim-lua/plenary.nvim',
     })
+    use({
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup()
+        end,
+    })
 end)
 
 -- load plugin configs
