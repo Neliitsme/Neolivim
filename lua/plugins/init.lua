@@ -196,9 +196,9 @@ local startup = require('packer').startup(function()
         end,
     })
     use({
-        'Pocco81/AutoSave.nvim',
+        'pocco81/auto-save.nvim',
         config = function()
-            require('autosave').setup({
+            require('auto-save').setup({
                 enabled = true,
             })
         end,
