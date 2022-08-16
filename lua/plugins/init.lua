@@ -252,6 +252,12 @@ local startup = require('packer').startup(function()
             require('scrollbar').setup()
         end,
     })
+    use({
+        'goolord/alpha-nvim',
+        config = function()
+            require('alpha').setup(require('alpha.themes.dashboard').config)
+        end,
+    })
 end)
 
 -- load plugin configs
