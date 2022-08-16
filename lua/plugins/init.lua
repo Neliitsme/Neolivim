@@ -238,6 +238,12 @@ local startup = require('packer').startup(function()
             require('colorizer').setup()
         end,
     })
+    use({
+        'petertriho/nvim-scrollbar',
+        config = function()
+            require('scrollbar').setup()
+        end,
+    })
 end)
 
 -- load plugin configs
