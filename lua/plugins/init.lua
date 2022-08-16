@@ -27,12 +27,20 @@ local startup = require('packer').startup(function()
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     })
+    use('windwp/nvim-ts-autotag')
+    use('andymass/vim-matchup')
     use({
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
         config = function()
             require('nvim-treesitter.configs').setup({
                 highlight = {
+                    enable = true,
+                },
+                autotag = {
+                    enable = true,
+                },
+                matchup = {
                     enable = true,
                 },
             })
