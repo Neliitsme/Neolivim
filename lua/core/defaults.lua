@@ -1,15 +1,12 @@
 -- Use <Space> as leader and remove mapping from it
-vim.cmd([[
-    let mapleader=" "
-    nnoremap <SPACE> <Nop>
-]])
+vim.g.mapleader = ' '
+vim.keymap.set('n', '<SPACE>', '<Nop>', { noremap = true })
 
 -- Default variables
-vim.cmd([[
-    set shiftwidth=2
-    set number relativenumber
-    set nohlsearch
-]])
+vim.opt.shiftwidth = 2
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.hlsearch = false
 
 vim.opt.expandtab = true
 vim.opt.smartindent = true
@@ -33,6 +30,4 @@ require('lualine').setup({
 })
 
 -- Copy to system clipboard
-vim.cmd([[
-    set clipboard=unnamedplus
-]])
+vim.opt.clipboard = 'unnamedplus'
