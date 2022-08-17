@@ -11,16 +11,5 @@ vim.opt.hlsearch = false
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- Color scheme setup
-require('ayu').setup({
-    mirage = true,
-})
-require('ayu').colorscheme()
-
--- Lualine color scheme
-require('lualine').setup({
-    options = { theme = 'ayu' },
-})
-
 -- Copy to system clipboard
 vim.opt.clipboard = 'unnamedplus'

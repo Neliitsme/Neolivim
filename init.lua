@@ -1,4 +1,7 @@
--- load packer and plugins first to avoid errors
+-- load defaults before all else
+require('core.defaults')
+
+-- load packer and plugins
 require('plugins')
 
 -- load core configs
