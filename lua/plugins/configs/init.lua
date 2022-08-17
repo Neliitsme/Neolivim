@@ -80,8 +80,8 @@ cmp.setup.cmdline(':', {
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -96,14 +96,14 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gtd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-    vim.keymap.set('n', '<space>wl', function()
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+    vim.keymap.set('n', '<leader>wl', function()
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>fm', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<leader>fm', vim.lsp.buf.formatting, bufopts)
 end
 
 local lsp_flags = {
@@ -180,14 +180,14 @@ require('telescope').setup({
 local action = require('lspsaga.codeaction')
 
 vim.keymap.set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
-vim.keymap.set('n', '<space>ca', action.code_action, opts)
-vim.keymap.set('v', '<space>ca', function()
+vim.keymap.set('n', '<leader>ca', action.code_action, opts)
+vim.keymap.set('v', '<leader>ca', function()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-U>', true, false, true))
     action.range_code_action()
 end, opts)
 vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
 vim.keymap.set('n', 'gs', '<Cmd>Lspsaga signature_help<CR>', opts)
-vim.keymap.set('n', '<space>rn', '<cmd>Lspsaga rename<CR>', opts)
+vim.keymap.set('n', '<leader>rn', '<cmd>Lspsaga rename<CR>', opts)
 vim.keymap.set('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
 vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
 vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
