@@ -178,7 +178,6 @@ local startup = require('packer').startup(function()
         tag = 'v2.*',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            vim.opt.termguicolors = true
             require('bufferline').setup({
                 options = {
                     diagnostics = 'nvim_lsp',

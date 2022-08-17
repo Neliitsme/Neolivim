@@ -13,3 +13,5 @@ vim.opt.smartindent = true
 
 -- Copy to system clipboard
 vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.termguicolors = true
