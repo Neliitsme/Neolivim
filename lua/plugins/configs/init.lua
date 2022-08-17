@@ -81,8 +81,6 @@ cmp.setup.cmdline(':', {
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Use an on_attach function to only map the following keys
@@ -95,8 +93,7 @@ local on_attach = function(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gtd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
@@ -105,8 +102,6 @@ local on_attach = function(client, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, bufopts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
     vim.keymap.set('n', '<space>fm', vim.lsp.buf.formatting, bufopts)
 end
@@ -180,6 +175,22 @@ require('telescope').setup({
         },
     },
 })
+
+-- LspSaga setup
+local action = require('lspsaga.codeaction')
+
+vim.keymap.set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
+vim.keymap.set('n', '<space>ca', action.code_action, opts)
+vim.keymap.set('v', '<space>ca', function()
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-U>', true, false, true))
+    action.range_code_action()
+end, opts)
+vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', opts)
+vim.keymap.set('n', 'gs', '<Cmd>Lspsaga signature_help<CR>', opts)
+vim.keymap.set('n', '<space>rn', '<cmd>Lspsaga rename<CR>', opts)
+vim.keymap.set('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
+vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
+vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
 
 -- Disable default markdown folding
 vim.g.vim_markdown_folding_disabled = 1

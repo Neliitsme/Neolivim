@@ -21,6 +21,13 @@ local startup = require('packer').startup(function()
         end,
     })
     use('neovim/nvim-lspconfig')
+    use({
+        'glepnir/lspsaga.nvim',
+        branch = 'main',
+        config = function()
+            require('lspsaga').init_lsp_saga()
+        end,
+    })
     use('Shatur/neovim-ayu')
     use('kyazdani42/nvim-web-devicons')
     use({
