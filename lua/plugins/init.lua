@@ -264,6 +264,7 @@ local startup = require('packer').startup(function()
             require('alpha').setup(require('alpha.themes.dashboard').config)
         end,
     })
+    use('ggandor/lightspeed.nvim')
 end)
 
 -- load plugin configs
