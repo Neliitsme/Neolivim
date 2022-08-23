@@ -116,10 +116,11 @@ local lsp_flags = {
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
+-- Automatically setup all installed server with default config
 local lspconfig = require('lspconfig')
-local servers = { 'pyright', 'tsserver', 'eslint', 'html', 'cssls' }
+local mason_installed_servers = require('mason-lspconfig').get_installed_servers()
 
-for _, server in ipairs(servers) do
+for _, server in ipairs(mason_installed_servers) do
     lspconfig[server].setup({
         capabilities = capabilities,
         on_attach = on_attach,
