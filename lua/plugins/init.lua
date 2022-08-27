@@ -208,6 +208,17 @@ local startup = require('packer').startup(function()
             require('nvim-tree').setup({
                 view = {
                     adaptive_size = true,
+                    hide_root_folder = true,
+                },
+                git = {
+                    enable = false,
+                },
+                renderer = {
+                    icons = {
+                        show = {
+                            git = false,
+                        },
+                    },
                 },
             })
         end,
