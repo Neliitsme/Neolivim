@@ -284,6 +284,12 @@ local startup = require('packer').startup(function()
         end,
     })
     use('ggandor/lightspeed.nvim')
+    use({
+        'RRethy/vim-illuminate',
+        config = function()
+            require('illuminate').configure()
+        end,
+    })
 end)
 
 -- load plugin configs
