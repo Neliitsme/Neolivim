@@ -185,9 +185,17 @@ local startup = require('packer').startup(function()
                         local icon = level:match('error') and ' ' or ' '
                         return ' ' .. icon .. count
                     end,
-                    separator_style = 'slant',
+                    separator_style = 'thin',
                     show_buffer_close_icons = false,
                     show_close_icon = false,
+
+                    offsets = {
+                        {
+                            filetype = 'NvimTree',
+                            highlight = 'Directory',
+                            separator = true,
+                        },
+                    },
                 },
             })
         end,
