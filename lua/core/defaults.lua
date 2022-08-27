@@ -10,8 +10,12 @@ vim.opt.hlsearch = false
 
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 -- Copy to system clipboard
 vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.termguicolors = true
+
+vim.opt.fillchars = { eob = ' ' }
+vim.opt.mouse = 'a'
