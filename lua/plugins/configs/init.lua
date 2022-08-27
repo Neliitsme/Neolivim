@@ -150,11 +150,13 @@ end
 
 require('telescope').setup({
     defaults = {
+        sorting_strategy = 'ascending',
         layout_strategy = 'horizontal',
         layout_config = {
             width = 0.75,
             preview_cutoff = 120,
             horizontal = {
+                prompt_position = 'top',
                 preview_width = function(_, cols, _)
                     if cols < 120 then
                         return math.floor(cols * 0.5)
