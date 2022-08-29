@@ -303,6 +303,12 @@ local startup = require('packer').startup(function()
             })
         end,
     })
+    use({
+        'kylechui/nvim-surround',
+        config = function()
+            require('nvim-surround').setup()
+        end,
+    })
 end)
 
 -- load plugin configs
