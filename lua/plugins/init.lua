@@ -280,7 +280,25 @@ local startup = require('packer').startup(function()
     use({
         'goolord/alpha-nvim',
         config = function()
-            require('alpha').setup(require('alpha.themes.dashboard').config)
+            local dashboard = require('alpha.themes.dashboard')
+            dashboard.section.header.val = {
+                '                                                     ',
+                '  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ',
+                '  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ',
+                '  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ',
+                '  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ',
+                '  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ',
+                '  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ',
+                '                                                     ',
+            }
+
+            dashboard.section.buttons.val = {
+                dashboard.button('e', '  > New file', '<CMD>ene<CR>'),
+                dashboard.button('SPC f f', '  > Find file', '<CMD>Telescope find_files<CR>'),
+                dashboard.button('SPC f o', '  > Recent', '<CMD>Telescope oldfiles<CR>'),
+                dashboard.button('SPC f g', '  > Find Word  ', '<CMD>Telescope live_grep<CR>'),
+            }
+            require('alpha').setup(dashboard.opts)
         end,
     })
     use('ggandor/lightspeed.nvim')
