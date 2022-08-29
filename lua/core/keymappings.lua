@@ -3,6 +3,8 @@ vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { nor
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { noremap = true })
 vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { noremap = true })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { noremap = true })
+vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { noremap = true })
+vim.keymap.set('n', '<leader>fo', require('telescope.builtin').oldfiles, { noremap = true })
 
 -- LuaSnip
 vim.cmd([[
@@ -35,3 +37,6 @@ vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { noremap = true, sile
 -- NvimTree
 vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { noremap = true })
+
+-- Todo-comments
+vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { noremap = true })
