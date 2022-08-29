@@ -287,7 +287,20 @@ local startup = require('packer').startup(function()
     use({
         'RRethy/vim-illuminate',
         config = function()
-            require('illuminate').configure()
+            require('illuminate').configure({
+                providers = {
+                    'lsp',
+                    'treesitter',
+                    'regex',
+                },
+                delay = 100,
+                filetypes_denylist = {
+                    'packer',
+                    'alpha',
+                    'NvimTree',
+                },
+                under_cursor = false,
+            })
         end,
     })
 end)
