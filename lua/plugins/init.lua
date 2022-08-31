@@ -222,6 +222,9 @@ local startup = require('packer').startup(function()
                     enable = false,
                 },
                 renderer = {
+                    indent_markers = {
+                        enable = true,
+                    },
                     icons = {
                         show = {
                             git = false,
