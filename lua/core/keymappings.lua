@@ -40,3 +40,8 @@ vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { noremap = true })
 
 -- Todo-comments
 vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { noremap = true })
+
+-- Toggleterm
+
+vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=float<CR>', { noremap = true })
+vim.keymap.set('t', '<leader>tt', '<C-\\><C-n><CMD>ToggleTerm<CR>', { noremap = true })

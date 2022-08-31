@@ -330,6 +330,13 @@ local startup = require('packer').startup(function()
             require('nvim-surround').setup()
         end,
     })
+    use({
+        'akinsho/toggleterm.nvim',
+        tag = 'v2.*',
+        config = function()
+            require('toggleterm').setup()
+        end,
+    })
 end)
 
 -- load plugin configs
