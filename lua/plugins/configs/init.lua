@@ -192,16 +192,7 @@ vim.keymap.set('n', 'gd', '<cmd>Lspsaga preview_definition<CR>', opts)
 
 vim.keymap.set('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>', { silent = true })
 vim.keymap.set('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>', { silent = true })
-
-local action = require('lspsaga.action')
--- scroll in hover doc or  definition preview window
-vim.keymap.set('n', '<C-f>', function()
-    action.smart_scroll_with_saga(1)
-end, { silent = true })
-
-vim.keymap.set('n', '<C-b>', function()
-    action.smart_scroll_with_saga(-1)
-end, { silent = true })
+vim.keymap.set('n', '<leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { silent = true })
 
 -- Disable default markdown folding
 vim.g.vim_markdown_folding_disabled = 1
