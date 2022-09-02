@@ -258,6 +258,7 @@ local startup = require('packer').startup(function()
     })
     use({
         'nvim-neorg/neorg',
+        tag = '0.0.12',
         config = function()
             require('neorg').setup({
                 load = {
