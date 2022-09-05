@@ -297,10 +297,11 @@ local startup = require('packer').startup(function()
             }
 
             dashboard.section.buttons.val = {
-                dashboard.button('e', '  > New file', '<CMD>ene<CR>'),
-                dashboard.button('SPC f f', '  > Find file', '<CMD>Telescope find_files<CR>'),
-                dashboard.button('SPC f o', '  > Recent', '<CMD>Telescope oldfiles<CR>'),
-                dashboard.button('SPC f g', '  > Find Word  ', '<CMD>Telescope live_grep<CR>'),
+                dashboard.button('e', '  > New file', ':ene<CR>'),
+                dashboard.button('SPC f f', '  > Find file', ':Telescope find_files<CR>'),
+                dashboard.button('SPC f o', '  > Recent', ':Telescope oldfiles<CR>'),
+                dashboard.button('SPC f g', '  > Find Word', ':Telescope live_grep<CR>'),
+                dashboard.button('s', '  > Open neovim config', ':e $MYVIMRC | :cd %:p:h <CR>'),
             }
             require('alpha').setup(dashboard.opts)
         end,
