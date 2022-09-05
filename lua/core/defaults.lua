@@ -19,3 +19,5 @@ vim.opt.termguicolors = true
 
 vim.opt.fillchars = { eob = ' ' }
 vim.opt.mouse = 'a'
+
+vim.opt.swapfile = false
