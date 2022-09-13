@@ -302,6 +302,7 @@ local startup = require('packer').startup(function()
                 dashboard.button('SPC f o', '  > Recent', ':Telescope oldfiles<CR>'),
                 dashboard.button('SPC f g', '  > Find Word', ':Telescope live_grep<CR>'),
                 dashboard.button('s', '  > Open neovim config', ':e $MYVIMRC | :cd %:p:h <CR>'),
+                dashboard.button('q', 'ﴘ  > Quit neovim', ':q!<CR>'),
             }
             require('alpha').setup(dashboard.opts)
         end,
