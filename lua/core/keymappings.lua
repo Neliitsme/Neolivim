@@ -45,3 +45,5 @@ vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { noremap = true })
 
 vim.keymap.set('n', '<leader>tt', '<cmd>ToggleTerm direction=float<CR>', { noremap = true })
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>ToggleTerm<CR>', { noremap = true })
+
+vim.keymap.set('n', '<leader>fm', vim.lsp.buf.format, { noremap = true, silent = true })
