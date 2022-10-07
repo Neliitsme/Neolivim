@@ -265,19 +265,6 @@ local startup = require('packer').startup(function()
         requires = { 'nvim-lua/plenary.nvim' },
     })
     use({
-        'nvim-neorg/neorg',
-        tag = '0.0.12',
-        config = function()
-            require('neorg').setup({
-                load = {
-                    ['core.defaults'] = {},
-                    ['core.norg.concealer'] = {},
-                },
-            })
-        end,
-        requires = 'nvim-lua/plenary.nvim',
-    })
-    use({
         'norcalli/nvim-colorizer.lua',
         config = function()
             require('colorizer').setup()
