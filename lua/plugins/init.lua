@@ -149,6 +149,11 @@ local startup = require('packer').startup(function()
     use({
         'L3MON4D3/LuaSnip',
         config = function()
+            require('luasnip').setup({
+                update_events = 'TextChanged,TextChangedI',
+                region_check_events = 'CursorHold,InsertLeave',
+            })
+
             require('luasnip.loaders.from_vscode').lazy_load()
         end,
     })

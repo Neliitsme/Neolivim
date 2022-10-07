@@ -5,11 +5,12 @@ vim.cmd([[
 
 local lspkind = require('lspkind')
 local cmp = require('cmp')
+local luasnip = require('luasnip')
 
 cmp.setup({
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     window = {
@@ -23,10 +24,10 @@ cmp.setup({
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<Tab>'] = cmp.mapping(function(fallback)
-            -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-            if cmp.visible() then
-                local entry = cmp.get_selected_entry()
-                if not entry then
+            if luasnip.expand_or_locally_jumpable() then
+                luasnip.expand_or_jump()
+            elseif cmp.visible() then
+                if not cmp.get_selected_entry() then
                     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
                     cmp.confirm()
                 else
@@ -35,13 +36,22 @@ cmp.setup({
             else
                 fallback()
             end
-        end, { 'i', 's', 'c' }),
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, { 'i', 's' }),
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
         { name = 'luasnip' },
-    }, {
+        { name = 'nvim_lsp' },
         { name = 'buffer' },
+        { name = 'path' },
     }),
     formatting = {
         format = lspkind.cmp_format({
