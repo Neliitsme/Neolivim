@@ -349,6 +349,7 @@ local startup = require('packer').startup(function()
             require('toggleterm').setup()
         end,
     })
+    use('lervag/vimtex')
 end)
 
 -- load plugin configs

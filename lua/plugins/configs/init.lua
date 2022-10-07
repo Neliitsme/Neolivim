@@ -204,3 +204,17 @@ vim.keymap.set('n', '<leader>cd', '<cmd>Lspsaga show_cursor_diagnostics<CR>', { 
 
 -- Disable default markdown folding
 vim.g.vim_markdown_folding_disabled = 1
+
+-- VimTex setup
+vim.g.vimtex_compiler_method = 'latexmk'
+vim.g.vimtex_view_method = 'skim'
+vim.g.vimtex_view_skim_sync = 1
+vim.g.vimtex_view_skim_activate = 1
+vim.g.vimtex_quickfix_mode = 0
+
+-- vim.cmd([[
+--     let g:vimtex_compiler_method = 'latexmk'
+--     let g:vimtex_view_method = 'skim'
+--     let g:vimtex_view_skim_sync = 1
+--     let g:vimtex_view_skim_activate = 1
+-- ]])
