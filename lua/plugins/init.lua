@@ -256,6 +256,9 @@ local startup = require('packer').startup(function()
                     require('null-ls').builtins.formatting.prettier,
                     require('null-ls').builtins.formatting.stylua,
                     require('null-ls').builtins.formatting.autopep8,
+                    require('null-ls').builtins.formatting.markdownlint,
+
+                    require('null-ls').builtins.diagnostics.markdownlint,
                 },
             })
         end,
