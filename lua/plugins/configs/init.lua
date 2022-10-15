@@ -121,8 +121,7 @@ local lsp_flags = {
 
 -- setup LSPs
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Automatically setup all installed server with default config
 local lspconfig = require('lspconfig')
