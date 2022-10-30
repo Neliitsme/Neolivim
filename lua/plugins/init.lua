@@ -57,6 +57,7 @@ local startup = require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = 'nvim-lua/plenary.nvim',
     })
+    use({ 'nvim-telescope/telescope-file-browser.nvim' })
     use('preservim/vim-markdown')
     use({
         'windwp/nvim-autopairs',
@@ -209,34 +210,6 @@ local startup = require('packer').startup(function()
         'folke/which-key.nvim',
         config = function()
             require('which-key').setup({})
-        end,
-    })
-    use({
-        'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-        },
-        tag = 'nightly',
-        config = function()
-            require('nvim-tree').setup({
-                view = {
-                    adaptive_size = true,
-                    hide_root_folder = true,
-                },
-                git = {
-                    enable = false,
-                },
-                renderer = {
-                    indent_markers = {
-                        enable = true,
-                    },
-                    icons = {
-                        show = {
-                            git = false,
-                        },
-                    },
-                },
-            })
         end,
     })
     use({

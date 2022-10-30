@@ -186,6 +186,7 @@ require('telescope').setup({
     },
 })
 
+require('telescope').load_extension('file_browser')
 -- LspSaga setup
 vim.keymap.set('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>', opts)
 

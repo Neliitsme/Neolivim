@@ -1,10 +1,10 @@
 -- Telesctope
 vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { noremap = true })
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { noremap = true })
-vim.keymap.set('n', '<leader>fb', require('telescope.builtin').buffers, { noremap = true })
 vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { noremap = true })
 vim.keymap.set('n', '<leader>fk', require('telescope.builtin').keymaps, { noremap = true })
 vim.keymap.set('n', '<leader>fo', require('telescope.builtin').oldfiles, { noremap = true })
+vim.keymap.set('n', '<leader>fb', require('telescope').extensions.file_browser.file_browser, { noremap = true })
 
 -- Trouble
 vim.api.nvim_set_keymap('n', '<leader>xx', '<cmd>TroubleToggle<cr>', { silent = true, noremap = true })
@@ -17,10 +17,6 @@ vim.api.nvim_set_keymap('n', 'gR', '<cmd>Trouble lsp_references<cr>', { silent =
 -- bufferline
 vim.keymap.set('n', ']b', '<cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '[b', '<cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-
--- NvimTree
-vim.keymap.set('n', '<C-n>', '<cmd>NvimTreeToggle<CR>', { noremap = true })
-vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeFocus<CR>', { noremap = true })
 
 -- Todo-comments
 vim.keymap.set('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { noremap = true })
